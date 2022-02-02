@@ -2,7 +2,9 @@ import React, { createContext, useReducer } from "react";
 
 const initialState = {
   popular: [],
-  selected: [],
+  selected: {},
+  slectedTitle: "",
+  selectedDesctiption: "",
 };
 
 const reducer = (state, action) => {
@@ -11,7 +13,12 @@ const reducer = (state, action) => {
       return { ...state, popular: action.payload.popular };
     case "SET_SELECTED":
       // stateを展開する必要がある。これは、reducerは更新ではなく、新規作成を行うため、展開しないと、既存のpopularが消えてしまうため
-      return { ...state, selected: action.payload.selected };
+      return {
+        ...state,
+        selected: action.payload.selected,
+        slectedTitle: action.payload.selected.snippet.title,
+        selectedDesctiption: action.payload.selected.snippet.description,
+      };
     default:
       return state;
   }

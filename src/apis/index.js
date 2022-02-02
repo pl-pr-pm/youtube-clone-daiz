@@ -8,7 +8,7 @@ const youtube = axios.create({
 
 const params = {
   part: "snippet",
-  maxResults: 20,
+  maxResults: 5,
   key: APIKEY,
   regionCode: "JP",
   type: "video",
