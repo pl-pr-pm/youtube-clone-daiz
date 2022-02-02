@@ -25,7 +25,7 @@ const VideoDetail = () => {
   };
   useEffect(() => {
     setSelectedVideo();
-  }, []);
+  }, [location.search]);
 
   return globalState.selected ? (
     <div className={Styles.wrap}>

@@ -5,6 +5,7 @@ const initialState = {
   selected: {},
   slectedTitle: "",
   selectedDesctiption: "",
+  related: [],
 };
 
 const reducer = (state, action) => {
@@ -19,6 +20,8 @@ const reducer = (state, action) => {
         slectedTitle: action.payload.selected.snippet.title,
         selectedDesctiption: action.payload.selected.snippet.description,
       };
+    case "SET_RELATED":
+      return { ...state, related: action.payload.related };
     default:
       return state;
   }
